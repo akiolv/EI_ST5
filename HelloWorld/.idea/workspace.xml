@@ -26,7 +26,6 @@
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../EI_ST5.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/springboot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springboot/src/main/java/fr/st5c0/helloworld/springboot/HelloworldApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/springboot/src/main/java/fr/st5c0/helloworld/springboot/HelloworldApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../LICENSE" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../bdd.puml" beforeDir="false" />
     </list>
@@ -83,7 +82,7 @@
       <workItem from="1605018368698" duration="210000" />
       <workItem from="1605018607036" duration="328000" />
       <workItem from="1605019122601" duration="105000" />
-      <workItem from="1605019390638" duration="1563000" />
+      <workItem from="1605019390638" duration="1620000" />
     </task>
     <servers />
   </component>
