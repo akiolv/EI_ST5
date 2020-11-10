@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloworldApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootApplication.class, args);
+		SpringApplication.run(HelloworldApplication.class, args);
 	}
 
 	@GetMapping("/")
