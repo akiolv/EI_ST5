@@ -26,5 +26,5 @@ if(isset($_GET['email']) && isset($_GET['mdp']))
 	    }
 	}
 }
-echo(json_encode($connected));		
+echo(json_encode($id));		
 ?>
