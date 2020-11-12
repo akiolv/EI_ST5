@@ -15,14 +15,14 @@ public class SQL {
     public static Statement statement;
 
     public SQL() {
-        init();
+//        init();
         this.fichierBDD = null;
         this.con = null;
         this.statement = null;
     }
 
     public SQL(String fichierBDD) {
-        init();
+//        init();
         this.fichierBDD = fichierBDD;
         System.out.println("[Status] Connection to database " + fichierBDD);
         try {
