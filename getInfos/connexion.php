@@ -1,6 +1,6 @@
 <?php
 
-$connected = false;
+$id = -1;
 
 if(isset($_GET['email']) && isset($_GET['mdp']))
 {
@@ -21,7 +21,7 @@ if(isset($_GET['email']) && isset($_GET['mdp']))
 		{
 			if($donnee['mdp']==$_GET['mdp'])
 			{
-				$connected = true;
+				$id = $donnee['id_patient'];
 			}
 	    }
 	}
