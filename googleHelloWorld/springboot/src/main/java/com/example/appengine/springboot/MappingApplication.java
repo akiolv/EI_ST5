@@ -18,4 +18,9 @@ public class MappingApplication {
 		return "Hello world!";
 	}
 
+	@GetMapping("/schlagcs")
+	public String shlag() {
+		return "QUIIIIII DIIIIIIT *** ?";
+	}
+
 }
