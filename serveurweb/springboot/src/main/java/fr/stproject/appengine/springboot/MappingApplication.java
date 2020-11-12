@@ -1,12 +1,17 @@
 package fr.stproject.appengine.springboot;
 
-import ConnectionBDD.SQL;
-
+import fr.stproject.appengine.springboot.ConnectionBDD.SQL;
+import org.apache.ibatis.mapping.ResultSetType;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 @SpringBootApplication
 @RestController
@@ -24,9 +29,18 @@ public class MappingApplication {
 		return "Hello world!";
 	}
 
-	@GetMapping("/schlagcs")
+	@GetMapping("/test")
 	public String schlag() {
-		return "QUIIIIII DIIIIIIT *** ?";
+		String test = "resultat: ";
+		try {
+			Connection con = interfacesql.getCon();
+			Statement stmt = con.createStatement();
+			ResultSet res = stmt.executeQuery("SELECT id_mesure AS idMesure FROM Mesures LIMIT 1");
+			test += res.getString("idMesure");
+		} catch (SQLException throwables) {
+			throwables.printStackTrace();
+		}
+		return test;
 	}
 
 	@GetMapping("/inputdata")

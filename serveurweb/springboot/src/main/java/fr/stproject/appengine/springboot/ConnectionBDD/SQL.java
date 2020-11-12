@@ -8,7 +8,7 @@ import java.io.FileReader;
 import java.io.Reader;
 import java.sql.*;
 
-@SuppressWarnings("ALL")
+
 public class SQL {
 
     public static Connection con;
@@ -70,7 +70,8 @@ public class SQL {
                 PreparedStatement stmt = con.prepareStatement("INSERT INTO Mesures VALUES (?, ?, ?, ?)");
                 Statement statement = con.createStatement();
                 ResultSet maxid = statement.executeQuery("SELECT MAX(id_mesure) AS idMesure FROM Mesures");
-                stmt.setInt(1, maxid.getInt("idMesure"));
+                if(maxid != null){stmt.setInt(1, maxid.getInt("idMesure"));}
+                else{stmt.setInt(1, 1);}
                 stmt.setString(2, date);
                 stmt.setString(3, taux);
                 stmt.setString(4, id_patient);
