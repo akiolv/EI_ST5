@@ -1,4 +1,4 @@
-package com.example.appengine.springboot;
+package fr.stproject.appengine.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
