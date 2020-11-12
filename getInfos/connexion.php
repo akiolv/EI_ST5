@@ -1,6 +1,6 @@
 <?php
 
-$id = -1;
+$id = "-1";
 
 if(isset($_GET['email']) && isset($_GET['mdp']))
 {

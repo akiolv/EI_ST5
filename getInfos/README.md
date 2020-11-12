@@ -11,3 +11,4 @@ Ce projet consiste à récupérer des demandes par des requetes HTML et le page 
 - http://webprog-dev.com/getInfos/infoMedecin.php?id_medecin=? : Permet de récupérer les informations du medecins
 - http://webprog-dev.com/getInfos/infoPatient.php?id_patient=? : Permet de récupérer les informations du patients
 - http://webprog-dev.com/getInfos/connexion.php?email=?&mdp=? : Permet de vérifier les identifiants de connexion d'un utilisateur
+- http://webprog-dev.com/getInfos/donneeMedecinPatient.php?id_patient=? : Récupère les infos du medecin du patient

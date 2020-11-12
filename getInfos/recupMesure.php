@@ -16,6 +16,6 @@ if(isset($_GET['id_patient']))
 	$results = $statement->fetchAll(PDO::FETCH_ASSOC);
 	$json = json_encode($results);
 
-	echo(json_encode($json));
+	echo($json);
 }
 ?>
