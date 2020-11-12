@@ -19,11 +19,11 @@ public class MappingApplication {
 	}
 
 	@GetMapping("/schlagcs")
-	public String shlag() {
+	public String schlag() {
 		return "QUIIIIII DIIIIIIT *** ?";
 	}
 
-	@GetMapping("/inputData")
+	@GetMapping("/inputdata")
 	public String saveInputData() {
 		return "data incoming";
 	}
