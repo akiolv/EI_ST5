@@ -15,13 +15,13 @@ public class SQL {
     public final String fichierBDD;
 
     public SQL() {
-//        init();
+        init();
         this.fichierBDD = null;
         this.con = null;
     }
 
     public SQL(String fichierBDD) {
-//        init();
+        init();
         this.fichierBDD = fichierBDD;
         System.out.println("[Status] Connection to database " + fichierBDD);
         try {
@@ -65,7 +65,7 @@ public class SQL {
     }
 
     public void saveInputDataOnDataBase(String date, String taux, String id_patient) {
-        if (date != "0" && taux != "0" && id_patient != "0") {
+        if (date != "0" || taux != "0" || id_patient != "0") {
             try {
                 PreparedStatement stmt = con.prepareStatement("INSERT INTO Mesures VALUES (?, ?, ?, ?)");
                 Statement statement = con.createStatement();
