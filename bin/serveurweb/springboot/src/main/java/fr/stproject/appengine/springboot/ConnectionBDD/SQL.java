@@ -15,13 +15,11 @@ public class SQL {
     public final String fichierBDD;
 
     public SQL() {
-        init();
         this.fichierBDD = null;
         this.con = null;
     }
 
     public SQL(String fichierBDD) {
-        init();
         this.fichierBDD = fichierBDD;
         System.out.println("[Status] Connection to database " + fichierBDD);
         try {
@@ -29,22 +27,25 @@ public class SQL {
             Class.forName("org.sqlite.JDBC");
             con = DriverManager.getConnection("jdbc:sqlite:" + fichierBDD);
             System.out.println("[Status] Connected");
+            init();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }
 
     public void init(){
-        ScriptRunner sr = new ScriptRunner(con);
-        //Creating a reader object
-        Reader reader = null;
         try {
-            reader = new BufferedReader(new FileReader("/home/anouk9876543210/EI_ST5/serveurweb/springboot/src/main/java/fr/stproject/appengine/springboot/ConnectionBDD/bdd.sql"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS `Mesures` (\n" +
+                    "  `id_mesure` SERIAL PRIMARY KEY,\n" +
+                    "  `date_prise` DATETIME NOT NULL,\n" +
+                    "  `niveau_glycemine`  FLOAT NOT NULL,\n" +
+                    "  `id_patient` BIGINT unsigned NOT NULL,\n" +
+                    "  FOREIGN KEY (id_patient) REFERENCES Patient(id_patient) ON DELETE cascade\n" +
+                    "  )");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
-        //Running the script
-        sr.runScript(reader);
     }
 
     public static Connection getCon() {
@@ -67,14 +68,10 @@ public class SQL {
     public void saveInputDataOnDataBase(String date, String taux, String id_patient) {
         if (date != "0" || taux != "0" || id_patient != "0") {
             try {
-                PreparedStatement stmt = con.prepareStatement("INSERT INTO Mesures VALUES (?, ?, ?, ?)");
-                Statement statement = con.createStatement();
-                ResultSet maxid = statement.executeQuery("SELECT MAX(id_mesure) AS idMesure FROM Mesures");
-                if(maxid != null){stmt.setInt(1, maxid.getInt("idMesure"));}
-                else{stmt.setInt(1, 1);}
-                stmt.setString(2, date);
-                stmt.setString(3, taux);
-                stmt.setString(4, id_patient);
+                PreparedStatement stmt = con.prepareStatement("INSERT INTO Mesures VALUES ( ?, ?, ?)");
+                stmt.setString(1, date);
+                stmt.setString(2, taux);
+                stmt.setString(3, id_patient);
                 stmt.executeUpdate();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();

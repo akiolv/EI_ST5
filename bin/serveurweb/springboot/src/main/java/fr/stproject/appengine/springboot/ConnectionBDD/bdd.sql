@@ -1,6 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `BDD`
-USE `BDD`;
-
 DROP TABLE IF EXISTS 'medecin_patient' cascade;
 DROP TABLE IF EXISTS 'proches_patient' cascade;
 DROP TABLE IF EXISTS 'Patient' cascade;
