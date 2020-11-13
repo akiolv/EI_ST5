@@ -11,7 +11,7 @@ if(isset($_GET['id_patient']))
 	{
 		die('Erreur : ' . $e->getMessage());
 	}
-	$statement = $bddlog->prepare("SELECT * FROM Mesures WHERE id_patient = ".$_GET['id_patient']." ORDER BY id_mesure desc limit 30");
+	$statement = $bddlog->prepare("SELECT * FROM (SELECT * FROM Mesures ORDER BY id_mesure desc limit 30 WHERE id_patient = ".$_GET['id_patient']." ) ORDER BY id_mesure asc ");
 	$statement->execute();
 	$results = $statement->fetchAll(PDO::FETCH_ASSOC);
 	$json = json_encode($results);
