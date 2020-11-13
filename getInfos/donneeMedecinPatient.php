@@ -11,7 +11,7 @@ if(isset($_GET['id_patient']))
 	{
 		die('Erreur : ' . $e->getMessage());
 	}
-	$statement = $bddlog->prepare("SELECT * FROM Medecin AS me JOIN medecin_patient AS mp JOIN Patient AS pa ON me.id_medecin = mp.id_medecin AND pa.id_patient = mp.id_patient WHERE pa.id_patient = ".htmlspecialchars($_GET['id_patient']));
+	$statement = $bddlog->prepare("SELECT * FROM Medecin AS me JOIN medecin_patient AS mp ON me.id_medecin = mp.id_medecin WHERE mp.id_patient = ".htmlspecialchars($_GET['id_patient']));
 	
 	// $stmt->bindParam(':id_patient', $_GET['id_patient']);	
 	$statement->execute();
