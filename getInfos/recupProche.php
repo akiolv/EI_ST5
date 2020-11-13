@@ -11,12 +11,12 @@ if(isset($_GET['id_patient']))
 	{
 		die('Erreur : ' . $e->getMessage());
 	}
-	$statement = $bddlog->prepare("SELECT * FROM Proches AS p JOIN proche_patient AS pp JOIN Patients AS pa ON p.id_proches = pp.id_proches AND pa.id_patient = pp.id_patient WHERE id_patient = ".$_GET['id_patient']);
+	$statement = $bddlog->prepare("SELECT * FROM Proches AS p JOIN proche_patient AS pp JOIN Patient AS pa ON p.id_proches = pp.id_proches AND pa.id_patient = pp.id_patient WHERE pp.id_patient = ".$_GET['id_patient']);
 	$statement->execute();
 	$results = $statement->fetchAll(PDO::FETCH_ASSOC);
 	$json = json_encode($results);
 
-	echo(json_encode($json));
+	echo($json);
 }
 
 ?>
